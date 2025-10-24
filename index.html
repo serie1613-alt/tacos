@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Taquería Deliciosa</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(11, 11, 11, 0.5)), url('img/imagen (9).jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navegación -->
+    <nav class="bg-red-700 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-4xl font-bold">La Taquería Deliciosa</h1>
+            <div class="space-x-4 flex items-center">
+                <a href="#menu" class="text-xl hover:text-yellow-300 nav-link">Menú</a>
+                <a href="#ubicacion" class="text-xl hover:text-yellow-300 nav-link">Ubicación</a>
+                <a href="#contacto" class="text-xl hover:text-yellow-300 nav-link">Contacto</a>
+                <button id="cartButton" class="ml-4 bg-yellow-500 text-white px-3 py-1 rounded-full hover:bg-yellow-600 transition-colors flex items-center">
+                    <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    <span id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section h-96 flex items-center justify-center text-white text-center">
+        <div>
+            <h2 class="text-5xl font-bold mb-4">Los mejores Tacos de Tijuana</h2>
+            <p class="text-xl mb-8">Sabor auténtico Tijuanense </p>
+            <a href="#menu" class="bg-red-700 text-white px-8 py-3 rounded-full hover:bg-red-600 transition duration-300 menu-button">Ver Menú</a>
+        </div>
+    </div>
+
+    <!-- Menú -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Nuestro Menú</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Taco al Pastor -->
+                <div class="bg-white p-6 rounded-lg shadow-lg menu-item card">
+                    <img src="img/imagen (2).jpg" alt="Tacos al Pastor" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Tacos al Pastor</h3>
+                    <p class="text-gray-600">Deliciosos tacos de cerdo marinado con piña</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-lg font-bold text-red-700">$25 MXN</span>
+                        <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition-colors" data-name="Tacos al Pastor" data-price="25">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg menu-item card">
+                    <img src="img/imagen (3).jpg" alt="Tacos de Birria" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Tacos de Birria</h3>
+                    <p class="text-gray-600">Jugosos tacos de res en consomé</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-lg font-bold text-red-700">$30 MXN</span>
+                        <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition-colors" data-name="Tacos de Birria" data-price="30">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg menu-item card">
+                    <img src="img/imagen (4).jpg" alt="Tacos de Pescado" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold mb-2">Tacos de Pescado</h3>
+                    <p class="text-gray-600">Frescos tacos de pescado estilo Baja</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-lg font-bold text-red-700">$35 MXN</span>
+                        <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-full hover:bg-yellow-600 transition-colors" data-name="Tacos de Pescado" data-price="35">
+                            Agregar al Carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Ubicación</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-center text-xl mb-4">Av. Revolución #123, Col. Centro</p>
+                <p class="text-center text-gray-600">Abierto de Martes a Domingo</p>
+                <p class="text-center text-gray-600">1:00 PM - 11:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Contacto</h2>
+            <div class="max-w-lg mx-auto">
+                <div class="text-center">
+                    <p class="text-xl mb-4">¿Tienes alguna pregunta? ¡Contáctanos!</p>
+                    <p class="text-gray-600">Teléfono: (555) 123-4567</p>
+                    <p class="text-gray-600">Email: info@taqueriadeliciosa.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-700 text-white py-8">
+        <div class="container mx-auto px-4 flex items-center justify-center space-x-4">
+            <img src="img/imagen (1).jpg" alt="Logo Taquería" class="h-12 w-12 object-cover rounded-full footer-logo">
+            <p>&copy; 2024 La Taquería Deliciosa. Todos los Derechos Reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
